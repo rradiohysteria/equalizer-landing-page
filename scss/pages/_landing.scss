@@ -1,0 +1,199 @@
+@use '../abstracts' as *;
+
+.hero {
+    padding: $spacing-800 $spacing-250;
+    overflow: hidden;
+    background: $white url('../../assets/bg-main-mobile.png') no-repeat calc(32vw) calc(-26.6vw) / contain;
+
+    &__decoration {
+        display: none;
+    }
+
+    nav {
+        margin-bottom: $spacing-800;
+    }
+
+    h1 {
+        @include text(2.5rem, 700, 1.0, -1px);
+        padding-bottom: $spacing-500;
+    }
+
+    p {
+        @include text(1rem, 400, 1.5);
+    }
+}
+
+.content {
+    &__illustration {
+        margin-top: 7rem;
+        padding: $spacing-800 $spacing-250;
+        max-height: 24rem;
+        background: $slate url('../../assets/bg-pattern-2.svg') no-repeat 50% 0% ;
+        
+        img {
+            position: relative;
+            width: 55%;
+            overflow-x: hidden;
+            left: calc(21vw);
+            top: calc(-20vh);
+        }
+    }
+
+    &__price {
+        background-color: $orange;
+        padding: $spacing-600 $spacing-250;
+        color: $slate;
+
+        h2 {
+            @include text(2.5rem, 700, 1.1, 0);
+            margin-bottom: $spacing-300;
+        }
+
+        p {
+            @include text(1.25rem, 400, 1.5);
+        }
+
+        .price__text {
+            font-size: 1rem;
+            margin-bottom: $spacing-500;
+        }
+
+        .price__value {
+            @include text(4rem, 700, 1.1);
+        }
+
+        .price__buttons {
+            margin-top: $spacing-600;
+            margin-bottom: $spacing-600;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-200;
+        }
+
+        .price__monthly {
+            display: flex;
+            align-items: center;
+            gap: $spacing-200;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        padding: $spacing-800 $spacing-500;
+        background: $white url('../../assets/bg-main-tablet.png') no-repeat calc(-10vw) calc(-10vh) / cover;
+
+        nav {
+            margin-bottom: $spacing-1600;
+        }
+
+        h1 {
+            font-size: 4rem;
+            width: 75%;
+            padding-bottom: $spacing-500;
+        }
+
+        p {
+            font-size: 1.125rem;
+            width: 75%;
+        }
+
+        &__decoration {
+            width: 17rem;
+            display: block;
+            position: absolute;
+            top: -5%;
+            right: -5%;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-areas: "stack";
+
+        &__illustration {
+            grid-area: stack;
+            margin: $spacing-2500 $spacing-500;
+            background: $slate url('../../assets/bg-pattern-2.svg') no-repeat 0% 0% ;
+            border-radius: 0.75rem;
+            max-height: 100%;
+            z-index: 1;
+            
+            img {
+                width: 41%;
+                left: calc(3vw);
+                top: calc(-20vh);
+            }
+        }
+
+        &__price {
+            grid-area: stack;
+            z-index: 2;
+            width: 50%;
+            height: 50%;
+            border-radius: 0.75rem;
+            position: relative;
+            top: 30%;
+            left: 40%;
+            padding: $spacing-600;
+            height: 60%;
+
+            .price__text {
+                font-size: 1.125rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        background-image: url('../../assets/bg-main-desktop.png');
+        background-size: cover;
+        background-position: top;
+    }
+
+    .hero {
+        padding: $spacing-800 10rem;
+        position: relative;
+        background: none;
+
+        h1 {
+            font-size: 5.5rem;
+            width: 100%;
+        }
+
+        p {
+            width: 60%;
+        }
+
+        &__decoration {
+            right: 0;
+        }
+    }
+
+    .content {
+        &__illustration {
+            margin: $spacing-2500 10rem;
+            background: $slate url('../../assets/bg-pattern-2.svg') no-repeat 50% 0% ;
+            border-radius: 0.75rem;
+            max-height: 37.5rem;
+            
+            img {
+                width: 31%;
+                left: calc(6vw);
+                top: calc(-20vh);
+            }
+        }
+
+        &__price {
+            width: 35%;
+            left: 50%;
+            padding: $spacing-700;
+            height: 62%;
+
+            .price__text {
+                width: 95%;
+            }
+        }
+    }
+}
